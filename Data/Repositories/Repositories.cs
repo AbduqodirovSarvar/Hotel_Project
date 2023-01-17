@@ -24,8 +24,8 @@ namespace Hotel_Proj.Data.Repositories
         public async Task<bool> CreateAsync(T entity)
         {
             await _dbSet.AddAsync(entity);
-            var res = await _db.SaveChangesAsync();
-            return res>0;
+            await _db.SaveChangesAsync();
+            return true;
         }
 
         public bool DeleteAsync(T entity)
