@@ -14,6 +14,8 @@ namespace Hotel_Proj.Data.DbContexts
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Room> Rooms { get; set; }
         public virtual DbSet<Reservation> Reservations { get; set; }
+        public virtual DbSet<Amenities> Amenities { get; set; }
+        public virtual DbSet<RoomAmenities> RoomAmenities { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseNpgsql(AppSettingsJson.ConnectionString());
