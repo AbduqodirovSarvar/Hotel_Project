@@ -11,7 +11,7 @@ namespace Hotel_Proj.Domain.Entities
     {
         public int Id { get; set; }
         public int UserId { get; set; }
-        //public User user { get; set; }
+        public User user { get; set; }
         public int RoomId { get; set; }
         public Room room { get; set; }
         public DateTime CheckIn { get; set; }
