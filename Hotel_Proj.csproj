@@ -9,7 +9,6 @@
 
   <ItemGroup>
     <Folder Include="Domain\Enums\" />
-    <Folder Include="Services\RepositoriesServices\" />
   </ItemGroup>
 
   <ItemGroup>

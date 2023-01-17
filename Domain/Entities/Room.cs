@@ -1,4 +1,5 @@
-﻿using Hotel_Proj.Domain.Enums;
+﻿using Hotel_Proj.Domain.AbstractForCRUDs;
+using Hotel_Proj.Domain.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,9 +8,8 @@ using System.Threading.Tasks;
 
 namespace Hotel_Proj.Domain.Entities
 {
-    public class Room
+    public class Room: AbstractForCrud
     {
-        public int Id { get; set; }
         public int RoomNumber { get; set; }
         public int Floor { get; set; }
         public Statuses Status { get; set; }

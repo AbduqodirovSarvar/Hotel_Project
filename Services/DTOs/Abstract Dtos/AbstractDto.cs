@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Hotel_Proj.Data.IRepositories
+namespace Hotel_Proj.Services.DTOs.Abstract_Dtos
 {
-    public interface IGenericRepositories
+    public class AbstractDto
     {
-
     }
 }
