@@ -10,7 +10,6 @@
   <ItemGroup>
     <Folder Include="Data\" />
     <Folder Include="Domain\Entities\" />
-    <Folder Include="Domain\Enums\" />
     <Folder Include="Services\" />
   </ItemGroup>
 
