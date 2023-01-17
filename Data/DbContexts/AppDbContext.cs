@@ -15,7 +15,6 @@ namespace Hotel_Proj.Data.DbContexts
         public virtual DbSet<Reservation> Reservations { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            //optionsBuilder.UseNpgsql("Server=127.0.0.1;Port=5432;Database=Hotel;User Id=postgres;Password=12345;");
             optionsBuilder.UseNpgsql(AppSettingsJson.ConnectionString());
         }
     }
