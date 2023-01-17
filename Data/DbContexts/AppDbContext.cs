@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Hotel_Proj.Configurations;
 
 namespace Hotel_Proj.Data.DbContexts
 {
@@ -16,6 +17,11 @@ namespace Hotel_Proj.Data.DbContexts
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseNpgsql(AppSettingsJson.ConnectionString());
+        }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfiguration(new RoomsConfigurations());
+            modelBuilder.ApplyConfiguration(new UsersConfigurations());
         }
     }
 }
