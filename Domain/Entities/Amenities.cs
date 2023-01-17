@@ -6,7 +6,15 @@ using System.Threading.Tasks;
 
 namespace Hotel_Proj.Domain.Entities
 {
+<<<<<<< HEAD
     internal class Amenities
     {
+=======
+    public class Amenities
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+
+>>>>>>> master
     }
 }
