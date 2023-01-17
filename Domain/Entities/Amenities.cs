@@ -10,6 +10,5 @@ namespace Hotel_Proj.Domain.Entities
     {
         public int Id { get; set; }
         public string Name { get; set; }
-
     }
 }
