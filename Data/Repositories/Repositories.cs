@@ -1,5 +1,6 @@
 ﻿using Hotel_Proj.Data.DbContexts;
 using Hotel_Proj.Data.IRepositories;
+using Hotel_Proj.Domain.AbstractForCRUDs;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Hotel_Proj.Data.Repositories
 {
-    public class Repositories<T> : IGenericRepositories<T> where T : class
+    public class Repositories<T> : IGenericRepositories<T> where T : AbstractForCrud
     {
         protected readonly AppDbContext _db;
         protected readonly DbSet<T> _dbSet;
@@ -20,20 +21,18 @@ namespace Hotel_Proj.Data.Repositories
             _db = dbcontext;
             _dbSet = dbcontext.Set<T>();
         }
-        public async Task<T> CreateAsync(T entity)
+        public async Task<bool> CreateAsync(T entity)
         {
             await _dbSet.AddAsync(entity);
-            await _db.SaveChangesAsync();
-            return entity;
+            var res = await _db.SaveChangesAsync();
+            return res>0;
         }
 
-        public void DeleteAsync(Expression<Func<T, bool>> expression)
+        public bool DeleteAsync(T entity)
         {
-            var entity = _dbSet.FirstOrDefault(expression);
+            //var entity = _dbSet.FirstOrDefault(x => x.Id == id);
             _dbSet.Remove(entity);
-
-            _db.SaveChanges();
-
+            return _db.SaveChanges()>0;
         }
 
         public IQueryable<T> GetAllAsync(Expression<Func<T, bool>> expression)
